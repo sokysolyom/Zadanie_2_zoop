@@ -23,4 +23,8 @@ public class Headcoach extends Coach {
         for(Coach coach : coaches)
             System.out.println(coach.getName());
     }
+
+    public String getName(){
+        return this.name;
+    }
 }

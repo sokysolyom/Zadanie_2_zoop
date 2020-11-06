@@ -1,5 +1,10 @@
 package main;
 
+import DB.Instances;
+import actions.Match;
+import actions.Training;
+import input.InputManager;
+import jdk.internal.util.xml.impl.Input;
 import people.Coach;
 import people.Headcoach;
 import people.Manager;
@@ -7,8 +12,6 @@ import people.Player;
 
 public class Main {
     public static void main(String[] args) {
-        Manager m = new Manager("Alex", "Ferguson", 45, "Manager", true, 42);
-        m.Introduce();
 
         Player p0 = new Player("David", "de Gea", 26, "Goalkeeper", true);
         Coach t0 = new Coach("Tomas", "Tanczos", 21, "Goalkeeper trainer");
@@ -50,5 +53,42 @@ public class Main {
         h1.addCoach(t2);
         h1.addCoach(t3);
         h1.showCoaches();
+
+        Manager m = new Manager("Alex", "Ferguson", 45, "Manager", true, 42);
+        m.Introduce();
+        m.addHeadCoach(h1);
+        m.showHeadcoach();
+
+        Match M = new Match("Liverpool", "Saturday", 7);
+        M.addPlayer(p0);
+        M.addPlayer(p1);
+        M.addPlayer(p2);
+        M.addPlayer(p3);
+        M.addPlayer(p4);
+        M.addPlayer(p5);
+        M.addPlayer(p6);
+        M.addPlayer(p7);
+        M.addPlayer(p8);
+        M.addPlayer(p9);
+        M.addPlayer(p10);
+        M.addCoach(t0);
+        M.addCoach(t1);
+        M.addCoach(t2);
+        M.addCoach(t3);
+        M.addHeadCoach(h1);
+        M.addManager(m);
+        Instances.addGlobalMatch(M);
+
+        InputManager inputManager = new InputManager();
+        inputManager.getInput();
+
+        Training T1 = new Training("Monday", 2, "Endurance");
+        T1.addPlayerToTraining(p0);
+        T1.addPlayerToTraining(p1);
+        T1.addPlayerToTraining(p2);
+        T1.addPlayerToTraining(p3);
+        T1.addCoachToTraining(t0);
+        T1.Information();
+
     }
 }

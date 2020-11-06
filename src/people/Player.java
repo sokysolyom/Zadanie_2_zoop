@@ -22,4 +22,5 @@ public class Player extends Person {
     public String getName(){
         return super.name;
     }
+
 }

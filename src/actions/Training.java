@@ -1,37 +1,49 @@
 package actions;
 
+import DB.Instances;
 import people.Coach;
 import people.Player;
 
+import java.util.ArrayList;
+
 public class Training {
-    Coach main;
-    Player p[];
     double time;
     String typeOfTraining, day;
+    private  ArrayList<Player> players = new ArrayList<>();
+    private  ArrayList<Coach> coaches = new ArrayList<>();
 
-    public Training(Coach main, Player p[], String typeOfTraining, String day, double time) {
-        this.main = main;
-        this.p = p;
-        this.typeOfTraining = typeOfTraining;
+    public Training(String day, int time, String typeOfTraining) {
         this.day = day;
         this.time = time;
-        System.out.println("Training was made...");
-    }
-/*
-    public void Information() {
-        System.out.println("-------------------");
-        System.out.println("This training was about: " + typeOfTraining);
-        System.out.println("It was on " + day);
-        System.out.println("It lasted: " + time +" hours");
-        System.out.println("The trainer was: " + super.name + " " + main.lastName);
-        System.out.println("His profession is: " + main.typOfTrainer);
-        System.out.println("PLAYERS INFORMATION(Was/Was NOT on training)");
-        for(int i=0; i<11; i++){
-            if(p[i].moodForTraining)
-                System.out.println(p[i].name + " " + p[i].name + " was on training!");
-            else System.out.println(p[i].name + " " + p[i].name + " was NOT on training!");
-        }
+        this.typeOfTraining = typeOfTraining;
     }
 
- */
+    public void addPlayerToTraining(Player player){
+        players.add(player);
+    }
+
+    public void addCoachToTraining(Coach coach){
+        coaches.add(coach);
+    }
+
+    public void showCoaches(){
+        System.out.println("Coaches on the training are: ");
+        for(Coach coach : coaches)
+            System.out.println(coach.getName());
+    }
+
+    public void showPlayers(){
+        System.out.println("Players on the training are: ");
+        for(Player player : players)
+            System.out.println(player.getName());
+    }
+
+    public void Information() {
+        System.out.println("Training information: ");
+        System.out.println("It was on "+ this.day);
+        System.out.println("It lasted "+ this.time);
+        System.out.println("Type of training was "+ this.typeOfTraining);
+        showCoaches();
+        showPlayers();
+        }
 }
