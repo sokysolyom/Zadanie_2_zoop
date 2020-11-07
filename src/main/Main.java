@@ -79,6 +79,7 @@ public class Main {
         M.addManager(m);
         Instances.addGlobalMatch(M);
 
+
         InputManager inputManager = new InputManager();
         inputManager.getInput();
 
@@ -88,7 +89,8 @@ public class Main {
         T1.addPlayerToTraining(p2);
         T1.addPlayerToTraining(p3);
         T1.addCoachToTraining(t0);
-        T1.Information();
+
+        inputManager.getInput(T1);
 
     }
 }

@@ -7,8 +7,9 @@ import people.Player;
 import java.util.ArrayList;
 
 public class Training {
-    double time;
-    String typeOfTraining, day;
+    private double time;
+    public String day;
+    private String typeOfTraining;
     private  ArrayList<Player> players = new ArrayList<>();
     private  ArrayList<Coach> coaches = new ArrayList<>();
 
