@@ -32,7 +32,7 @@ public class InputManager {
         wantsInformation = scanner.nextLine();
 
         if(wantsInformation.equals("Y")) {
-            training.Information();
+            training.showInformation();
         }
     }
 }

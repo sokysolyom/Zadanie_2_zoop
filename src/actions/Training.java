@@ -6,7 +6,7 @@ import people.Player;
 
 import java.util.ArrayList;
 
-public class Training {
+public class Training implements Session{
     private double time;
     public String day;
     private String typeOfTraining;
@@ -39,7 +39,7 @@ public class Training {
             System.out.println(player.getName());
     }
 
-    public void Information() {
+    public void showInformation() {
         System.out.println("Training information: ");
         System.out.println("It was on "+ this.day);
         System.out.println("It lasted "+ this.time);

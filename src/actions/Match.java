@@ -9,7 +9,7 @@ import people.Player;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Match {
+public class Match implements Session{
     private String enemy;
     private String day;
     private int start;
