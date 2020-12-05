@@ -2,12 +2,13 @@ package people;
 
 import java.util.Random;
 
-public class Player extends Person {
+public class Adults extends Person {
 
     private String position;
     private boolean moodForTraining;
 
-    public Player(String name, String lastName, int age, String position, boolean moodForTraining) {
+
+    public Adults(String name, String lastName, int age, String position, boolean moodForTraining) {
         super(name, lastName, age);
         this.position = position;
         this.moodForTraining = moodForTraining;
@@ -21,6 +22,16 @@ public class Player extends Person {
     }
     public String getName(){
         return super.name;
+    } // getter
+    //override
+    void method()
+    {
+        System.out.println("Method from Child");
+    }
+    //override
+    public void Introduce(){
+        System.out.println("I am a player in adult team");
+        System.out.println("My name is " + this.name + " " + this.lastName + " and I am " + this.age + " old");
     }
 
 }

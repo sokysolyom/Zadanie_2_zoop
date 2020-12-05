@@ -1,10 +1,9 @@
 package actions;
 
-import DB.Instances;
 import people.Coach;
 import people.Headcoach;
 import people.Manager;
-import people.Player;
+import people.Adults;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,7 +12,7 @@ public class Match implements Session{
     private String enemy;
     private String day;
     private int start;
-    private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Adults> adults = new ArrayList<>();
     private ArrayList<Coach> coaches = new ArrayList<>();
     private static Manager matchManager;
     private static Headcoach matchHeadcoach;
@@ -23,9 +22,9 @@ public class Match implements Session{
         this.day = day;
         this.start = start;
     }
-
-    public void addPlayer(Player player){
-        players.add(player);
+    // pridavanie ludi do zapasu
+    public void addPlayer(Adults adults){
+        this.adults.add(adults);
     }
 
     public void addCoach(Coach coach){
@@ -39,7 +38,7 @@ public class Match implements Session{
     public void addManager(Manager manager){
         matchManager = manager;
     }
-
+    //vypis ludi zo zapasu
     public void showManager(){
         System.out.println("Manager on the match is: ");
         System.out.println(matchManager.getName());
@@ -58,17 +57,18 @@ public class Match implements Session{
 
     public void showPlayers(){
         System.out.println("Players on the match are: ");
-        for(Player player : players)
-            System.out.println(player.getName());
+        for(Adults adults : this.adults)
+            System.out.println(adults.getName());
     }
 
-    public void showInformation(){
+    public void showInformation(){ //vypis informacie
         showManager();
         showHeadcoach();
         showCoaches();
         showPlayers();
     }
-    public void getResult(){
+
+    public void getResult(){ //funkcia na generovanie vysledku
         Random r = new Random();
         int low = 1;
         int high = 11;
@@ -76,6 +76,9 @@ public class Match implements Session{
         int result2 = r.nextInt(high-low) + low;
 
         System.out.println("The result was: " + result1 + ":" + result2);
+        if(result1>result2) System.out.println("It was a win.");
+        if(result1<result2) System.out.println("It was a loose.");
+        if(result1==result2) System.out.println("It was a tie.");
     }
 
 

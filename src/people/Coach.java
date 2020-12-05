@@ -8,7 +8,8 @@ public class Coach {
 
     protected String name, lastName, typOfTrainer;
     protected int age;
-    private  ArrayList<Player> players = new ArrayList<>();
+    private  ArrayList<Adults> adults = new ArrayList<>();
+    private  ArrayList<Kids> kids = new ArrayList<>();
 
     public Coach(String name, String lastName, int age, String typOfTrainer) {
         this.name = name;
@@ -16,19 +17,28 @@ public class Coach {
         this.age = age;
         this.typOfTrainer = typOfTrainer;
     }
-
-    public void addPlayer(Player player){
-        players.add(player);
-        Instances.addGlobalPlayer(player);
+    //pridavanie hracov ku trenerovy
+    public void addPlayer(Adults adults){
+        this.adults.add(adults);
+        Instances.addGlobalPlayer(adults);
+    }
+    //pridavanie deti ku trenerovy
+    public void addKids(Kids kids){
+        this.kids.add(kids);
+        Instances.addGlobalKid(kids);
     }
 
-    public void showPlayers(){
+    public void showPlayers(){ //funckia na vypis hracov, ktori patria ku trenerovy
         System.out.println("Coach "+this.name+" has these players: ");
-        for(Player player : players)
-        System.out.println(player.getName());
+        for(Adults adults : this.adults)
+        System.out.println(adults.getName());
+    }
+
+    public void getInfoTraining(){
+        System.out.println("Coach: " + this.name + " " + this.lastName + " has players: " + adults.size());
     }
 
     public String getName(){
         return this.name;
-    }
+    } // getter
 }

@@ -11,12 +11,13 @@ public class Manager extends Headcoach {
         this.mood = mood;
     }
 
+
+
     public void addHeadCoach(Headcoach headcoach){
         managerHeadcoach = headcoach;
-        Instances.addGlobalHeadCoach(headcoach);
     }
 
-    public void showHeadcoach(){
+    public void showHeadcoach(){        //funckia na vypisovanie headcoachov, ktori patria k menezerovy
         System.out.println("Manager "+this.name+" has this headcoach: ");
             System.out.println(managerHeadcoach.getName());
     }
